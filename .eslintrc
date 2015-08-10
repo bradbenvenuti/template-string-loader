@@ -1,5 +1,23 @@
 {
+    "parser": "babel-eslint",
     "env": {
+        "browser": true,
         "node": true
+    },
+    "ecmaFeatures": {
+        "modules": true
+    },
+    "rules": {
+        "quotes": [0],
+        "no-new": [0],
+        "no-mixed-requires": [0, false],
+        "no-loop-func": [0],
+        "no-alert": [0],
+        "eol-last": [0],
+        "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+        "no-unused-expressions": [0]
+    },
+    "globals": {
+        "ga": false
     }
 }

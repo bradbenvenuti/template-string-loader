@@ -5,9 +5,6 @@
 module.exports = function(content) {
 	this.cacheable && this.cacheable();
 	this.value = content;
-	var template = content.toString();
-	template = template.replace('module.exports = "', '');
-	template = template.substring(0, template.length - 1);
-	return "module.exports = function(scope){ return `" + template + "`};";
-}
-module.exports.raw = true;
+	var template = content.replace(/"/, 'function(scope){ return `').replace(/"$/, '`};');
+	return template;
+};
