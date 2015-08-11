@@ -1,5 +1,5 @@
 # template-string-loader
-Webpack ES6 Template String Loader
+Webpack [ES6 Template String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings) Loader
 
 ## Installation
 
@@ -7,24 +7,27 @@ Webpack ES6 Template String Loader
 
 ## Usage
 
-
-``` javascript
-var template = require("babel!template-string!./file.html")({data: '123'});
-```
-
 ``` html
 <!-- file.html -->
 <div>${scope.data}</div>
 ```
 
+Pass your data as param
+
 ``` javascript
-//returns
+var template = require("babel!template-string!./file.html")({data: '123'});
+```
+
+The template string loader will return the below function. Your data is available on the scope param:
+
+``` javascript
 module.exports = function(scope){
     return `<div>${scope.data}</div>`;
 }
 ```
 
+Result:
+
 ``` html
-<!-- renders as -->
 <div>123</div>
 ```
